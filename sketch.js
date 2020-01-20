@@ -4,8 +4,7 @@ let button, tree, canvas;
 // ----- vars ----- //
 let l_system;
 let rules = [
-   {in: "A", out: "AB"},
-   {in: "B", out: "A"},
+   {in: "F", out: "FF+[+F-F-F]-[-F+F+F]"},
 ]
 
 // ----- setup ----- //
@@ -14,7 +13,7 @@ function setup() {
    noCanvas();
 
    // setup L-system
-   l_system = new L_System("A", rules);
+   l_system = new L_System("F", rules);
 
    // setup p
    tree = document.querySelector('.tree');

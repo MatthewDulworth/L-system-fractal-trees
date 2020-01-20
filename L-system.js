@@ -26,6 +26,8 @@ class L_System {
             nextSentance += char;
          }
       }
+
+      // set next sentance to sentance, return sentance
       this.sentance = nextSentance;
       return this.sentance;
    }
