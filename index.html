@@ -1,21 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <title>L-system Fractal Trees</title>
+   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
    <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.min.js"></script>
+   <script src="turtle.js"></script>
    <script src="L-system.js"></script>
    <script src="sketch.js"></script>
 </head>
 
+<style>
+   body {
+      display: flex;
+      font-family: 'Roboto', sans-serif;
+   }
+
+   .sidebar {
+      padding-right: 20px;
+   }
+
+   .tree {
+      font-size: xx-small;
+   }
+
+   .button-wrapper {
+      display: grid;
+      place-content: center center;
+      padding-top: 20px;
+      border-top: 1px solid rgba(0, 0, 0, 0.7);
+   }
+</style>
+
 <body>
-   <div class="tree">
-      <p class="sentance"></p>
+   <div class="sidebar">
+
+      <h1>L-System Fractal Tree</h1>
+
+      <div class="text">
+         <p>
+            This sketch uses an L-system to generate a sequence of instructions which are then parsed using turtle
+            grpahics to create a fractal tree. 
+         </p>
+         <p>
+            The L-System starts with the axiom "F" and the uses the rule "F -> FF+[+F-F-F]-[-F+F+F]" to generate instructions for the turtle. 
+         </p>
+         <p>
+            The turtle grpahics system interprets each instruction as follows: 
+         </p>
+         <ul>
+            <li>"F" means draw a line</li>
+            <li>"+"" means rotate right</li>
+            <li>"-'' means rotate left</li>
+            <li>"[" means save the current location and translation data</li>
+            <li>"]" means revert to the previously save</li>
+         </ul> 
+      </div>
+
+      <div class="button-wrapper">
+         <button>generate a new sentance</button>
+      </div>
+
+      <div class="tree">
+         <p class="sentance"></p>
+      </div>
+
    </div>
-   <button>generate</button>
+
+   <div class="canvas-wrapper"></div>
 </body>
 
 </html>
